@@ -1,0 +1,11 @@
+export const ACTION_ADD_USER = 'ADD_USER';
+export const ACTION_SET_LOADING_DATA = 'SET_LOADING_DATA';
+export const ACTION_SET_ENVIRONMENT = 'SET_ENVIRONMENT';
+export const ACTION_SET_ACTIVE_TOOL = 'SET_ACTIVE_TOOL';
+export const ACTION_UPDATE_CAMPAIGNS = 'UPDATE_CAMPAIGNS';
+
+export const ENVIRONMENT_TYPES = {
+  POC: 'poc'
+};
+
+export const DEFAULT_OVERLAY_MESSAGE = 'Woo Woo Working .... 😊';

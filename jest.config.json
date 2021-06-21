@@ -1,0 +1,33 @@
+{
+  "transform": {
+    ".(ts|tsx)": "ts-jest"
+  },
+  "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+  "moduleNameMapper": {
+    ".+\\.(css|scss)$": "identity-obj-proxy"
+  },
+  "collectCoverage": true,
+  "coverageDirectory": "./coverage",
+  "collectCoverageFrom": [
+    "src/**/*.(ts|tsx|js)",
+    "!src/client/index.tsx",
+    "!src/server/server-dev.ts",
+    "!src/server/tests/*",
+    "!src/client/tests/*"
+  ],
+  "coverageThreshold": {
+    "global": {
+      "branches": 90,
+      "functions": 90,
+      "lines": 90
+    }
+  },
+  "globals": {
+    "ts-jest": {
+      "diagnostics": {
+        "warnOnly": true
+      }
+    }
+  }
+}
