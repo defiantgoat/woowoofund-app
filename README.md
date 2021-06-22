@@ -18,6 +18,7 @@ The application was developed on a Mac running BigSur with the following environ
   * NOTE: The application expects the [WooWooFund API](https://github.com/defiantgoat/woowoofund-api) to be running as well at http://localhost:9292/api/
 
 ## Known Issues
+* Application layout is not responsive currently, and will not work well on phone screens.
 * Tests do not exist for full coverage as this is POC
 * Design and UI/UX would need further refinement.
 * Code needs to be reviewed for optimizations.
