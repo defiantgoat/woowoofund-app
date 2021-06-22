@@ -15,5 +15,5 @@ The application was developed on a Mac running BigSur with the following environ
 * Run `yarn` to install node modules
 * Run `yarn run develop` to start the application in local development mode
   * The client application will run at http://localhost:8080/app/
-  * NOTE: The application expects the [WooWooFund API]((https://github.com/defiantgoat/woowoofund-api)) to be running as well at http://localhost:9292/api/
+  * NOTE: The application expects the [WooWooFund API](https://github.com/defiantgoat/woowoofund-api) to be running as well at http://localhost:9292/api/
 
