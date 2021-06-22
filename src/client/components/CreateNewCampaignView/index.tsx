@@ -102,7 +102,7 @@ const CreateNewCampaignView: React.FC<CreateNewCampaignViewProps> = ({path}: Cre
         container
         spacing={3}
         direction="row"
-        style={{margin:0}}
+        style={{margin:0, width: '100%'}}
       >
         <Grid
           container
