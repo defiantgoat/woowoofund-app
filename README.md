@@ -10,6 +10,29 @@ The application was developed on a Mac running BigSur with the following environ
 * Webpack
 * Express JS
 
+## Important Setup for Ubuntu 20.04
+The api was run on an Ubuntu 20.04 virtual machine via VM Fusion.
+* I created a new VM and installed the following packages via **apt**:
+ * `build-essential`
+ * `curl`
+ * `file`
+ * `git`
+ * `imagemagick`
+ * `libmagickwand-dev`
+ * `ghostscript`
+ 
+* I used RVM and installed Ruby v2.7.3
+* For the client, I installed nvm and installed v12.16.1
+ * I then installed yarn via npm. 
+
+**The API uses ImageMagick to convert PDF files to images. A functionality that has been disabled in Ubuntu and requires editing the ImageMagick policy.xml file.
+Run the following (if you need to on your machine of VM) A VM is recommended.**
+### Update the ImageMagick policy.xml
+* Use whatever text editing method you like to edit the following file
+* `/etc/ImageMagick-6/policy.xml`
+* Comment out or delete the following line: `<policy domain="coder" rights="none" pattern="PDF" />`
+
+
 ## To Run
 * Pull Repo to local environment
 * Run `yarn` to install node modules
