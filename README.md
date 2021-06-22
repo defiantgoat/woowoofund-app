@@ -1,7 +1,7 @@
 # WooWooFund Client Application
 ## Environment
 The application was developed on a Mac running BigSur with the following environment:
-* Node v12.16.1
+* Node v12.16.1 (via nvm)
 
 ## Technologies Used
 * React
