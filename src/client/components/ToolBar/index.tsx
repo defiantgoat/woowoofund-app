@@ -6,21 +6,21 @@ import WooWooTab from '../../lib/WooWooTab';
 import { ReduxStateConfigProps } from '../../interfaces';
 import { APPLICATION_VIEWS } from '../../config';
 import useStyles from './use-styles';
-import { setActiveTool } from '../../actions';
+import { setActiveTool, setActiveTab } from '../../actions';
 
 
 const ToolBar: React.FC = () => {
   const dispatch = useDispatch();
   const classes = useStyles();
   const activeTool = useSelector((state: ReduxStateConfigProps) => state.active_tool);
+  const activeTab = useSelector((state: ReduxStateConfigProps) => state.active_tab);
 
   const [toolMenu, setToolMenu] = useState([] as Array<JSX.Element>);
-  const [currentTabValue, setCurrentTabValue] = useState(0);
 
   useEffect(() => {
     const items: JSX.Element[] = [];
     for (const tool in APPLICATION_VIEWS) {
-      const { displayName, toolId, icon, path, showInMenu, tabValue } = APPLICATION_VIEWS[tool];
+      const { displayName, toolId, icon, path, showInMenu, tabValue, enabled } = APPLICATION_VIEWS[tool];
         if (showInMenu) {
           items.push(
             <WooWooTab
@@ -28,9 +28,10 @@ const ToolBar: React.FC = () => {
               selected={ toolId === activeTool }
               icon={ icon().type.render() }
               label={ displayName }
+              disabled={ !enabled }
               onClick={(): void => {
                 dispatch(setActiveTool(toolId));
-                setCurrentTabValue(tabValue);
+                dispatch(setActiveTab(tabValue));
                 navigate(path);
               }}
             />
@@ -44,7 +45,7 @@ const ToolBar: React.FC = () => {
 
   return (
     <div className={classes.toolBar}>
-      <WooWooTabs value={currentTabValue}>
+      <WooWooTabs value={activeTab}>
         { toolMenu }
       </WooWooTabs>
     </div>

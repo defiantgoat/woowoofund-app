@@ -3,7 +3,8 @@ import {
   ACTION_SET_LOADING_DATA,
   ACTION_SET_ENVIRONMENT,
   ACTION_SET_ACTIVE_TOOL,
-  ACTION_UPDATE_CAMPAIGNS
+  ACTION_UPDATE_CAMPAIGNS,
+  ACTION_SET_ACTIVE_TAB
 } from '../constants';
 import { ReduxActionProps } from '../interfaces';
 
@@ -21,6 +22,9 @@ export const setEnvironment = (payload: any): ReduxActionProps => {
 
 export const setActiveTool = (payload: any): ReduxActionProps => {
   return { type: ACTION_SET_ACTIVE_TOOL, payload};
+};
+export const setActiveTab = (payload: any): ReduxActionProps => {
+  return { type: ACTION_SET_ACTIVE_TAB, payload};
 };
 
 export const updateCampaigns = (payload: any): ReduxActionProps => {

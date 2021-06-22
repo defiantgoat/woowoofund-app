@@ -17,6 +17,7 @@ export interface ReduxStateConfigProps {
   active_tool: string;
   env: Record<string, any>;
   campaigns: Record<string,any>;
+  active_tab: number;
 }
 
 export interface EnvironmentProps {

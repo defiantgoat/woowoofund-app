@@ -22,7 +22,7 @@ const viewId = 'campaign-view';
 const createPitchDeck = (pitch_deck: Array<PitchDeckItem>): Array<JSX.Element> => {
   return pitch_deck.map((item, i) => {
     const {width, height, url} = item;
-    return (<img src={url} key={i} style={{width: `${width}px`, height: `${height}px`}} />);
+    return (<img src={url} key={i} style={{width: '100%'}} />);
   });
 };
 
@@ -56,45 +56,39 @@ const CampaignView: React.FC<CampaignViewProps> = ({path}: CampaignViewProps) =>
       {
       campaignData &&
         <>
-          <h2 className={classes.campaignName}>{campaignData['name']}</h2>
-          <Grid container spacing={6} style={{margin: 0}}>
-            <Grid item container xs={9}>
-              <Grid item xs={12}><h3>Pitch</h3></Grid>
-              <Grid item xs={12}>
-                <Carousel
-                  autoPlay={false}
-                >
-                  {
-                    createPitchDeck(campaignData['pitch_deck'] || [])
-                  }
-                </Carousel>
-              </Grid>
-              <Grid item xs={12}><h3>About</h3></Grid>
-              <Grid item xs={12}>{campaignData['about']}</Grid>
+          <Grid container spacing={0} direction='column'>
+            <Grid item xs={12}>
+              <h2 className={classes.campaignName}>{campaignData['name']}</h2>
             </Grid>
-            <Grid item container xs={3}>
-              <Grid item xs={12}>
-                <h3>Funding Goal</h3>
+            <Grid container spacing={3} item xs={12} direction='row' style={{margin:0}}>
+              <Grid item container xs={9} spacing={3} >
+                <Grid item xs={12}>
+                  <h3>Our Story</h3>
+                  <Carousel
+                    autoPlay={false}
+                  >
+                    {
+                      createPitchDeck(campaignData['pitch_deck'] || [])
+                    }
+                  </Carousel>
+                </Grid>
+                <Grid item xs={12}>
+                  <h3>About</h3>
+                  <p>{campaignData['about']}</p>
+                </Grid>
               </Grid>
-              <Grid item xs={12}>
-                {`$${campaignData['goal_value']}`}
-               </Grid>
-               <Grid item xs={12}>
-                <h3>Current Funding</h3>
+              <Grid item container xs={3} spacing={0} >
+                <Grid item xs={12} className={classes.highlightPanel}>
+                  <h3>Funding Goal</h3>
+                  {`$${campaignData['goal_value']}`}
+                </Grid>
+                <Grid item xs={12} className={classes.highlightPanel}>
+                  <h3>Current Funding</h3>
+                  {`$${campaignData['current_value']}`}
+                </Grid>
               </Grid>
-              <Grid item xs={12}>
-                {`$${campaignData['current_value']}`}
-               </Grid>
             </Grid>
           </Grid>
-          {/* <div style={{display:'flex', flexDirection: 'row'}}>
-            <div style={{flexGrow: 1, backgroundColor: 'blue'}}>
-              side 1
-            </div>
-            <div style={{flexBasis: '20%', backgroundColor: 'yellow'}}>
-              side 2
-            </div>
-          </div> */}
         </>
       }
     </div>

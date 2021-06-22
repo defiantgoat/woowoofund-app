@@ -3,7 +3,8 @@ import {
   ACTION_SET_ENVIRONMENT,
   ACTION_SET_LOADING_DATA,
   ACTION_SET_ACTIVE_TOOL,
-  ACTION_UPDATE_CAMPAIGNS
+  ACTION_UPDATE_CAMPAIGNS,
+  ACTION_SET_ACTIVE_TAB
 } from '../constants/index';
 import { ReduxActionProps, ReduxStateConfigProps } from '../interfaces';
 import { DEFAULT_APPLICATION_PATH } from '../config';
@@ -28,7 +29,8 @@ export const initialState: ReduxStateConfigProps = {
     metadata_endpoint: '',
     rules_endpoint: ''
   },
-  campaigns: {}
+  campaigns: {},
+  active_tab: 0
 };
 
 const rootReducer = (state = initialState, action: ReduxActionProps): ReduxStateConfigProps => {
@@ -47,6 +49,12 @@ const rootReducer = (state = initialState, action: ReduxActionProps): ReduxState
       return {
         ...state,
         active_tool: payload
+      };
+      
+    case ACTION_SET_ACTIVE_TAB: 
+      return {
+        ...state,
+        active_tab: payload
       };
 
     case ACTION_SET_LOADING_DATA:

@@ -11,6 +11,9 @@ const useStyles = makeStyles(() => ({
     '&:focus': {
       opacity: 1,
     },
+    '&:disabled': {
+      display: 'none'
+    },
   }
 }));
 

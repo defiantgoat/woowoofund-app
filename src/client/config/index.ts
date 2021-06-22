@@ -40,11 +40,11 @@ export const APPLICATION_VIEWS = {
   'CampaignView': {
     component: CampaignView,
     displayName: 'View Campaign',
-    enabled: true,
+    enabled: false,
     icon: (): any => DashboardIcon,
     path: 'view',
     toolId: 'view',
-    showInMenu: false,
+    showInMenu: true,
     tabValue: 2
   }
 };
