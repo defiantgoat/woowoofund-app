@@ -7,7 +7,6 @@ import { setEnvironment } from '../../actions';
 import { ReduxStateConfigProps } from '../../interfaces';
 import { captureInitialRequestPath } from '../../helpers/url-paths';
 import { ThemeProvider } from '@material-ui/styles';
-import theme from '../../lib/theme';
 import useStyles from './use-styles';
 
 const App: React.FC = () =>  {
@@ -21,7 +20,6 @@ const App: React.FC = () =>  {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
       <div className={classes.app}>
         <Header />
         {
@@ -30,7 +28,6 @@ const App: React.FC = () =>  {
             : <div>Log in Required</div>
           }
       </div>
-    </ThemeProvider>
   );
 };
 

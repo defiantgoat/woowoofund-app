@@ -2,9 +2,10 @@ import React from 'react';
 import { navigate } from '@reach/router';
 import { ButtonBase } from '@material-ui/core';
 import { useSelector, useDispatch } from 'react-redux';
-import { setActiveTool } from '../../actions';
+import { setActiveTab, setActiveTool } from '../../actions';
 import { ReduxStateConfigProps } from '../../interfaces';
-import WooWooIcon from '../../lib/icons/WooWooIcon';
+import { APPLICATION_VIEWS } from '../../config';
+import WooWooSmileyIcon from '../../lib/icons/WooWooSmileyIcon';
 
 import useStyles from './use-styles';
 
@@ -21,14 +22,16 @@ const UserButton: React.FC = () =>  {
   });
 
   const handleButtonClick = (): void => {
-    dispatch(setActiveTool('manage'));
-    navigate('manage');
+    const {toolId, tabValue, path} = APPLICATION_VIEWS.ManageCampaignsView;
+    dispatch(setActiveTool(toolId));
+    dispatch(setActiveTab(tabValue));
+    navigate(path);
   };
 
   return (
     <div className={classes.userButton}>
       <div className={classes.userIcon}>
-        <WooWooIcon backgroundRGB={[255, 255, 255]} foregroundRGB={[10,10,10]} />
+        <WooWooSmileyIcon backgroundRGB={[255, 255, 255]} foregroundRGB={[10,10,10]} />
       </div>
       <ButtonBase
         onClick={handleButtonClick}

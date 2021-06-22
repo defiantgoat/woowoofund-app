@@ -21,7 +21,6 @@ const MainView: React.FC<MainViewProps> = ({path}: MainViewProps) => {
   const classes = useStyles();
   const dispatch = useDispatch();
 
-  const [loadingMessage, setLoadingMessage] = useState(DEFAULT_OVERLAY_MESSAGE);
   const [viewComponents, setViewComponents] = useState([] as JSX.Element[]);
 
   const loggedIn = useSelector(
@@ -73,7 +72,7 @@ const MainView: React.FC<MainViewProps> = ({path}: MainViewProps) => {
     <div className={classes.mainView} data-testid={viewId}>
       <WooWooBackdrop
         visible={loadingData}
-        message={loadingMessage}
+        message={DEFAULT_OVERLAY_MESSAGE}
         test_id="loading-data-overlay"
       />
       <ToolBar />

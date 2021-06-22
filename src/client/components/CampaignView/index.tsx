@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Carousel from 'react-material-ui-carousel'
-import { APPLICATION_VIEWS, DEFAULT_APPLICATION_PATH, getToolIdFromPath } from '../../config';
+import Carousel from 'react-material-ui-carousel';
 import { ReduxStateConfigProps } from '../../interfaces';
 import Grid from '@material-ui/core/Grid';
 import {getQueryParams} from '../../helpers/url-paths';
@@ -21,7 +20,7 @@ const viewId = 'campaign-view';
 
 const createPitchDeck = (pitch_deck: Array<PitchDeckItem>): Array<JSX.Element> => {
   return pitch_deck.map((item, i) => {
-    const {width, height, url} = item;
+    const {url} = item;
     return (<img src={url} key={i} style={{width: '100%'}} />);
   });
 };
@@ -34,10 +33,7 @@ const CampaignView: React.FC<CampaignViewProps> = ({path}: CampaignViewProps) =>
   const windowLocation = window.location.toString();
 
   const [campaignData, setCampaignData] = useState(null as Record<string,any> | null);
-
-  const loggedIn = useSelector(
-    (state: ReduxStateConfigProps) => state.user.logged_in
-  );
+  const [errors, setErrors] = useState('');
 
   const campaigns = useSelector(
     (state: ReduxStateConfigProps) => state.campaigns
@@ -47,12 +43,22 @@ const CampaignView: React.FC<CampaignViewProps> = ({path}: CampaignViewProps) =>
     const {campaign} = getQueryParams(windowLocation);
     if (campaign) {
       const data = campaigns[campaign as string] || null;
-      setCampaignData(data);
+      if (data) {
+        setCampaignData(data);
+      }
+      else {
+        setErrors('Campaign Not Found. Click New Campaign to start a new funding initiative.')
+      }
+    } else {
+      setErrors('Campaign ID Missing. Click New Campaign to start a new funding initiative.')
     }
   }, [windowLocation, campaigns]);
 
   return (
     <div data-testid={viewId} className={classes.campaignView}>
+      {
+        errors > '' && <div>{errors}</div>
+      }
       {
       campaignData &&
         <>

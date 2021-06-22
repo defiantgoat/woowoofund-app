@@ -49,8 +49,8 @@ const ManageCampaignsView: React.FC<ManageCampaignsViewProps> = ({path}: ManageC
         const {id, name, snippet, thumbnail} = campaigns[campaign];
 
         items.push(
-          <Grid item xs={3}>
-            <Card key={`card-${id}`} variant="outlined">
+          <Grid item xs={3} key={`card-${id}`}>
+            <Card variant="outlined">
               <CardActionArea
                 onClick={() => {
                   dispatch(setActiveTab(2));

@@ -1,7 +1,7 @@
 FROM node:12.16.1-alpine
 
 # To Build: 
-# 1. npm run deploy-to-docker
+# 1. yarn run deploy
 # docker run --rm --name woowoofund-app -p 8080:3000 -ti woohoofund/app:latest
 
 # Change working directory

@@ -1,13 +1,13 @@
 import React from 'react';
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
-export interface NearmapIconProps extends SvgIconProps {
+export interface WooWooIconProps extends SvgIconProps {
   backgroundRGB: Array<number>;
   foregroundRGB: Array<number>;
   children?: JSX.Element;
 }
 
-const WooWooIcon: React.FC<NearmapIconProps> = (props: NearmapIconProps) => {
+const WooWooIcon: React.FC<WooWooIconProps> = (props: WooWooIconProps) => {
   return (
     <SvgIcon className={props.className || ''}>
 			<g>
