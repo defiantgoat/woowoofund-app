@@ -109,7 +109,6 @@ const CreateNewCampaignView: React.FC<CreateNewCampaignViewProps> = ({path}: Cre
           item
           xs={6}
           spacing={3}
-          direction="column"
         >
           <Grid item xs={12}>
             <WooWooTextField 
